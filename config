@@ -1,0 +1,18 @@
+ngx_feature="ngx_http_autohome_dis_opencv_module"
+ngx_feature_name=
+ngx_feature_run=no
+ngx_feature_incs=
+ngx_feature_path="$ngx_addon_dir /usr/local/opencv/include/ /usr/local/opencv/include/opencv" 
+ngx_feature_libs="-L/usr/local/opencv/lib/ -L/usr/local/lib/ -L/usr/lib64/"
+ngx_feature_deps="$ngx_addon_dir/opencv_resize.h $ngx_addon_dir/image_file_block.h"
+ngx_check_src="$ngx_addon_dir/ngx_http_autohome_dis_opencv_module.c $ngx_addon_dir/opencv_resize.cpp"
+ngx_feature_test="int a;"
+. auto/feature
+
+ngx_addon_name=ngx_http_autohome_dis_opencv_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_autohome_dis_opencv_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_check_src"
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS $ngx_feature_deps"
+CORE_DEPS="$CORE_DEPS $ngx_feature_deps"
+CORE_INCS="$CORE_INCS $ngx_feature_path"
+CORE_LIBS="$CORE_LIBS $ngx_feature_libs -lstdc++ -lopencv_core -lopencv_highgui -Wl,-E -lpthread -lcrypt -lz -lc -lrt"
