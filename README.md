@@ -60,11 +60,14 @@ f.生效：
 	
 2.安装nginx:
 
+
 ./configure --prefix=/usr/local/nginx --add-module=module/ngx_http_opencv_module
 
 
 
+
 nginx.conf
+
 
  location / {
             autohome_dis_opencv;
@@ -72,6 +75,7 @@ nginx.conf
 
 
 ll /tmp/images_data/vendor/o/201308/15/a.jpg
+
 
 
 
